@@ -1,0 +1,79 @@
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  --color-input-border-invalid: #f87171;
+  --color-input-border: #cbd5e1;
+}
+
+[color-scheme="dark"]:root {
+  --color-input-border-invalid: #fca5a5;
+  --color-input-border: #3f3f46;
+}
+
+html {
+  overflow: hidden;
+}
+
+* {
+  box-sizing: border-box;
+  /*min-width: 0;*/
+}
+
+#app {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--surface-section);
+  min-height: 100dvh;
+}
+
+a,
+a:hover,
+a:focus,
+a:active {
+  text-decoration: none;
+  color: inherit;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  margin: 0;
+  text-wrap: balance;
+}
+
+p {
+  text-wrap: pretty;
+  margin: 0;
+}
+
+/* ---------------- Scroll bar related ------------------ */
+*::-webkit-scrollbar {
+  width: 0.5rem;
+  height: 0.5rem;
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: var(--surface-400);
+  border-radius: 999px;
+}
+
+[color-scheme="dark"] *::-webkit-scrollbar-thumb {
+  background-color: var(--surface-100);
+  border-radius: 999px;
+}

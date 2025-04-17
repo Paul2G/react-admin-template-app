@@ -1,0 +1,37 @@
+export const user = {
+  myProfile: "Mi perfil",
+  basicInfo: "Información básica",
+  attribs: {
+    id: "ID",
+    name: "Nombre",
+    email: "Correo electrónico",
+    password: "Contraseña",
+    position: "Posición",
+    role: "Rol",
+    role_one: "Rol",
+    role_other: "Roles",
+    permission: "Permiso",
+    permission_one: "Permiso",
+    permission_other: "Permisos",
+    department: "Departamento",
+    departmentId: "ID",
+  },
+  actions: {
+    login: "Iniciar sesión",
+    signOut: "Cerrar sesión",
+    showPermission: "Mostrar permisos",
+    showPermission_one: "Mostrar {{count}} permiso",
+    showPermission_other: "Mostrar {{count}} permisos",
+    updatePassword: "Actualizar contraseña",
+  },
+  dialogs: {
+    loggedIn: "Sesión iniciada",
+    signOutSuccess: "Has cerrado la sesión.",
+    signOutError: "Error al cerrar la sesión.",
+  },
+  settings: {
+    title: "ajustes",
+    ui: "Ajustes de UI",
+    account: "Ajustes de cuenta",
+  },
+};

@@ -1,0 +1,40 @@
+{
+  "plugins": [
+    "@ianvs/prettier-plugin-sort-imports",
+    "prettier-plugin-tailwindcss"
+  ],
+  "importOrder": [
+    "^(react)",
+    "^@?\\w",
+    "",
+    "^~\\/([\\w-\\.]+)$",
+    "^~\\/([\\w-]+\\/)+(context)($|\\/)",
+    "^~\\/([\\w-]+\\/)+(components)($|\\/)",
+    "",
+    "^@\\/([\\w+-]+\\/)+(hooks)($|\\/)",
+    "^@\\/([\\w+-]+\\/)+(api)($|\\/)",
+    "^@\\/([\\w+-]+\\/)+(utils)($|\\/)",
+    "",
+    "^@\\/([\\w+-]+\\/)+(data)($|\\/)",
+    "^@\\/([\\w+-]+\\/)+(constants)($|\\/)",
+    "",
+    "^\\.\\.(?!/?$)",
+    "^\\.\\./?$",
+    "^\\./(?=.*/)(?!/?$)",
+    "^\\.(?!/?$)",
+    "^\\./?$",
+    "",
+    "^.",
+    "^.+\\.?(css)$"
+  ],
+  "tailwindAttributes": [
+    "inputClassName",
+    "iconClassName",
+    "buttonClassName",
+    "loadingClassName",
+    "imageClassName",
+    "mediaClassName",
+    "textClassName"
+  ],
+  "tailwindFunctions": ["clsx"]
+}

@@ -1,0 +1,37 @@
+export const user = {
+  myProfile: "My profile",
+  basicInfo: "Basic information",
+  attribs: {
+    id: "ID",
+    name: "Name",
+    email: "E-mail",
+    password: "Password",
+    position: "Position",
+    role: "Role",
+    role_one: "Role",
+    role_other: "Roles",
+    permission: "Permission",
+    permission_one: "Permission",
+    permission_other: "Permissions",
+    department: "Department",
+    departmentId: "ID",
+  },
+  actions: {
+    login: "Login",
+    signOut: "Sign out",
+    showPermission: "Show permissions",
+    showPermission_one: "Show {{count}} permission",
+    showPermission_other: "Show {{count}} permissions",
+    updatePassword: "Update password",
+  },
+  dialogs: {
+    loggedIn: "Logged In",
+    signOutSuccess: "You have been signed out.",
+    signOutError: "Error signing out.",
+  },
+  settings: {
+    title: "settings",
+    ui: "UI settings",
+    account: "Account settings",
+  },
+};
