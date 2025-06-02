@@ -1,14 +1,8 @@
 const projectConfig = {
   name: "React Admin Template App",
-  brand: "Sol Beauty & Care",
+  brand: "Social Events Manager",
   baseApi: {
     url: import.meta.env?.VITE_BASE_API_URL,
-  },
-  authApi: {
-    url: import.meta.env?.VITE_AUTH_API_URL,
-    loginPath: "api/auth/login",
-    logoutPath: "api/auth/logout",
-    whoamiPath: "api/me",
   },
 } as const;
 

@@ -5,8 +5,7 @@ import projectConfig from "~/config/project-config.ts";
  */
 export const ServiceApi = {
   BASE_V1: `${projectConfig.baseApi.url}api/`,
-  BASE_V2: `${projectConfig.baseApi.url}v2/`,
-  AUTH: `${projectConfig.authApi.url}`,
+  BASE_V2: `${projectConfig.baseApi.url}v2/api/`,
 } as const;
 
 /**
