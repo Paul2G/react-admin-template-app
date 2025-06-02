@@ -18,7 +18,7 @@ export function SidebarMenu({ className }: SidebarMenuProps) {
         <div className="flex flex-col gap-6">
           <div className="flex justify-center">
             <img
-              src="assets/brand/logo_foil.png"
+              src="assets/brand/logo.png"
               className="h-12 w-12"
               alt="logo"
             />
