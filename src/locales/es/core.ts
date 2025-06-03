@@ -69,6 +69,8 @@ export const core = {
     wasNotPublished: "El elemento no pudo ser publicado",
     wasDrafted: "Elemento convertido a borrador exitosamente",
     wasNotDrafted: "El elemento no se pudo convertir en borrador",
+    actionCompleted: "Acción completada exitosamente",
+    unableToHandleAction: "No se pudo manejar la acción",
     // Tables not found items
     tryAgainLater: "Intente de nuevo mas tarde",
     noResultsFound: "No se encontraron resultados",

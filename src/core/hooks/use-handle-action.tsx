@@ -52,7 +52,7 @@ export function useHandleAction<T, S>(
         life: 5000,
         severity: "success",
         summary: successSummary ?? "OK",
-        detail: successDetail ?? t("dialogs.wasUpdated"),
+        detail: successDetail ?? t("dialogs.actionCompleted"),
       });
       onSuccess(data);
     } catch (error) {
@@ -62,8 +62,9 @@ export function useHandleAction<T, S>(
         toast.show({
           life: 5000,
           severity: "error",
-          summary: errorSummary ?? error.status ?? "Error",
-          detail: errorDetail ?? error.message ?? t("dialogs.wasNotUpdated"),
+          summary: errorSummary ?? error.title ?? "Error",
+          detail:
+            errorDetail ?? error.detail ?? t("dialogs.unableToHandleAction"),
         });
 
         if (error.status === 401 || error.status === 403) {

@@ -1,3 +1,5 @@
+import type { ProblemDetails } from "~/core/types/fetch.ts";
+
 export class MissingIdError extends Error {
   constructor(message: string) {
     super(message);
@@ -6,11 +8,21 @@ export class MissingIdError extends Error {
 }
 
 export class NotOkResponseError extends Error {
-  public status: number;
-  constructor(message: string, status: number) {
-    super(message);
+  public type?: string;
+  public title: string;
+  public detail: string;
+  public instance?: string;
+  public status?: number;
+
+  constructor(problemDetails: ProblemDetails) {
+    super(problemDetails.title);
     this.name = "NotOkResponseError";
-    this.status = status;
+
+    this.type = problemDetails.type;
+    this.title = problemDetails.title;
+    this.detail = problemDetails.detail;
+    this.instance = problemDetails.instance;
+    this.status = problemDetails.status;
   }
 }
 

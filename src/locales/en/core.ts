@@ -69,6 +69,8 @@ export const core = {
     wasNotPublished: "The element could not be published",
     wasDrafted: "Element drafted successfully",
     wasNotDrafted: "The element could not be drafted",
+    actionCompleted: "Action completed successfully",
+    unableToHandleAction: "Unable to handle the action",
     // Tables not found items
     tryAgainLater: "Try again later",
     noResultsFound: "No results found",

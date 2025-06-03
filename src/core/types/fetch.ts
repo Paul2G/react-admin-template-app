@@ -21,3 +21,19 @@ export type PaginatedResponse<T> = {
     prev?: string | null;
   };
 };
+
+/** RFC9457 Problem Details for HTTP APIs */
+export type ProblemDetails = {
+  type?: string;
+  status?: number;
+  title: string;
+  detail: string;
+  instance?: string;
+
+  // Optional fields for additional error information
+  code?: string;
+  errors?:
+    | Array<Record<string, string>>
+    // Just for .NET compatibility
+    | Record<string, Array<string>>;
+};

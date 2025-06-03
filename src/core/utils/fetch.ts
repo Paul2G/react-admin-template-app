@@ -131,14 +131,21 @@ export async function fetchBaseApi<T = unknown>(
         break;
     }
   } catch (error) {
-    parsedResponse = { message: "Error parsing response" };
+    if (error instanceof Error)
+      parsedResponse = {
+        title: "Failed to parse response",
+        detail: error.message,
+      };
   }
 
   if (!response?.ok) {
-    throw new NotOkResponseError(
-      parsedResponse?.message ?? response?.statusText ?? "Unknown error",
-      response?.status,
-    );
+    throw new NotOkResponseError({
+      type: parsedResponse?.type,
+      title: parsedResponse?.title ?? response?.statusText,
+      detail: parsedResponse.detail,
+      instance: parsedResponse?.instance,
+      status: response?.status,
+    });
   }
 
   return parsedResponse;
