@@ -13,8 +13,8 @@ export type CommonDataRecord = Record<string, JSONValue | Date>;
 export type PaginatedResponse<T> = {
   items: Array<T>;
   meta: {
-    currentPage: number;
-    perPage: number;
+    page: number;
+    pageSize: number;
     total: number;
     lastPage?: number | null;
     next?: string | null;

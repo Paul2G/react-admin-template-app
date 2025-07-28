@@ -33,26 +33,18 @@ export async function getItemsList<T>(
 ): Promise<PaginatedResponse<T>> {
   const { moduleApiPath, serviceApi, params } = config;
 
-  const data = await fetchBaseApi<{
+  return await fetchBaseApi<{
     items: Array<T>;
-    current_page: number;
-    per_page: number;
-    total: number;
+    meta: {
+      page: number;
+      pageSize: number;
+      total: number;
+    };
   }>({
     serviceApi,
-    path: `${moduleApiPath}/list`,
+    path: `${moduleApiPath}`,
     params,
   });
-
-  // Transform the response to the PaginatedResponse type
-  return {
-    items: data.items,
-    meta: {
-      total: data.total,
-      currentPage: data.current_page,
-      perPage: data.per_page,
-    },
-  };
 }
 
 /** Retrieves a specific item by its ID from the specified API endpoint. */

@@ -129,16 +129,16 @@ export function TheContent<T>({
           extendedCellSlot={valueExtendedCellSlot}
         />
       )}
-      {filtersConfig?.page && filtersConfig?.limit && (
+      {filtersConfig?.page && filtersConfig?.pageSize && (
         <ContentPaginator
           totalItems={data?.meta?.total}
           currentPage={selectedFilters.page as number}
           setCurrentPage={(n) =>
             setSelectedFilters({ ...selectedFilters, page: n })
           }
-          itemsPerPage={selectedFilters.limit as number}
+          itemsPerPage={selectedFilters.pageSize as number}
           setItemsPerPage={(n) =>
-            setSelectedFilters({ ...selectedFilters, limit: n })
+            setSelectedFilters({ ...selectedFilters, pageSize: n })
           }
         />
       )}
