@@ -4,7 +4,7 @@ import { type PaginatedResponse } from "~/core/types/fetch";
 import { mockShapes } from "~/modules/shapes/data/mock";
 import type { Shape } from "~/modules/shapes/type.ts";
 
-const MODULE_API_PATH = "coupons";
+const MODULE_API_PATH = "shapes";
 
 export function getAllShapes({}: Pick<BaseApiFunctionConfig, "params"> = {}) {
   // Just mock logic
