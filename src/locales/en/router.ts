@@ -14,4 +14,7 @@ export const router = {
       index: "Squares",
     },
   },
+  locations: {
+    index: "Locations",
+  },
 };

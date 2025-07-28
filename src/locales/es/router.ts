@@ -12,4 +12,7 @@ export const router = {
       index: "Cuadrados",
     },
   },
+  locations: {
+    index: "Ubicaciones",
+  },
 };

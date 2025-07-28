@@ -14,7 +14,7 @@ import MainLayout, {
   shouldRevalidate as mainShouldRevalidate,
 } from "~/layouts/main-layout.tsx";
 import dashboardRoutes from "~/modules/dashboard/routes.tsx";
-import shapesRoutes from "~/modules/shapes/routes.tsx";
+import locationsRoutes from "~/modules/locations/routes.tsx";
 import authRoutes from "~/modules/user/auth-routes.tsx";
 import userRoutes from "~/modules/user/user-routes.tsx";
 
@@ -74,7 +74,7 @@ const router = createHashRouter([
           toolsFallbackRoute,
           userRoutes,
           dashboardRoutes,
-          shapesRoutes,
+          locationsRoutes,
         ],
       },
     ],
