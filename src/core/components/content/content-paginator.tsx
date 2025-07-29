@@ -14,8 +14,8 @@ export function ContentPaginator({
 
   const onPageChange = (event: PaginatorPageChangeEvent) => {
     setFirst(event.first);
-    setItemsPerPage(event.rows);
     setCurrentPage(event.page + 1);
+    setItemsPerPage(event.rows);
   };
 
   useUpdateEffect(() => {

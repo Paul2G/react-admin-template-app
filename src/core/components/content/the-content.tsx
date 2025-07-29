@@ -136,9 +136,9 @@ export function TheContent<T>({
           setCurrentPage={(n) =>
             setSelectedFilters({ ...selectedFilters, page: n })
           }
-          itemsPerPage={selectedFilters.pageSize as number}
+          itemsPerPage={selectedFilters.page_size as number}
           setItemsPerPage={(n) =>
-            setSelectedFilters({ ...selectedFilters, pageSize: n })
+            setSelectedFilters({ ...selectedFilters, page_size: n })
           }
         />
       )}
