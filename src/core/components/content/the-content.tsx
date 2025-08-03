@@ -21,6 +21,8 @@ import {
 /** A magic component that renders a content table with filters, columns, and pagination by a given configuration. */
 export function TheContent<T>({
   searchInputFilter = "search",
+  pageInputFilter = "page",
+  pageSizeInputFilter = "pageSize",
   selectable,
   i18nNamespace,
   itemActionsSlot,
@@ -47,6 +49,8 @@ export function TheContent<T>({
   const { isOpen, setClose, setOpen } = useOpener();
 
   const searchFilterConfig = filtersConfig?.[searchInputFilter];
+  const pageFilterConfig = filtersConfig?.[pageInputFilter];
+  const pageSizeFilterConfig = filtersConfig?.[pageSizeInputFilter];
 
   return (
     <div className="flex flex-col gap-4">
@@ -129,19 +133,26 @@ export function TheContent<T>({
           extendedCellSlot={valueExtendedCellSlot}
         />
       )}
-      {filtersConfig?.page && filtersConfig?.pageSize && (
-        <ContentPaginator
-          totalItems={data?.meta?.total}
-          currentPage={selectedFilters.page as number}
-          setCurrentPage={(n) =>
-            setSelectedFilters({ ...selectedFilters, page: n })
-          }
-          itemsPerPage={selectedFilters.page_size as number}
-          setItemsPerPage={(n) =>
-            setSelectedFilters({ ...selectedFilters, page_size: n })
-          }
-        />
-      )}
+      {pageFilterConfig?.type == "number" &&
+        pageSizeFilterConfig?.type == "number" && (
+          <ContentPaginator
+            totalItems={data?.meta?.total}
+            currentPage={selectedFilters[pageFilterConfig.key] as number}
+            setCurrentPage={(n) =>
+              setSelectedFilters({
+                ...selectedFilters,
+                [pageFilterConfig.key]: n,
+              })
+            }
+            itemsPerPage={selectedFilters[pageSizeFilterConfig.key] as number}
+            setItemsPerPage={(n) =>
+              setSelectedFilters({
+                ...selectedFilters,
+                [pageSizeFilterConfig.key]: n,
+              })
+            }
+          />
+        )}
     </div>
   );
 }
@@ -149,6 +160,10 @@ export function TheContent<T>({
 type TheContentProps<T> = {
   /** Filter to be used for the search input */
   searchInputFilter?: string;
+  /** Filter to be used for the page input */
+  pageInputFilter?: string;
+  /** Filter to be used for the page size input */
+  pageSizeInputFilter?: string;
   /** Whether the table should be selectable */
   selectable?: boolean;
   /** The i18n namespace for filters and attribs */
