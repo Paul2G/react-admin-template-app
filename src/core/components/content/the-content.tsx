@@ -52,6 +52,10 @@ export function TheContent<T>({
   const pageFilterConfig = filtersConfig?.[pageInputFilter];
   const pageSizeFilterConfig = filtersConfig?.[pageSizeInputFilter];
 
+  const someFiltersHaveInputs = Object.values(filtersConfig).some(
+    (f) => f.input,
+  );
+
   return (
     <div className="flex flex-col gap-4">
       <div className="flex justify-between gap-1">
@@ -73,14 +77,17 @@ export function TheContent<T>({
           )}
         </div>
         <div className="flex items-center gap-1">
-          <Button
-            severity={areFiltersDirty ? "contrast" : "secondary"}
-            icon="ph ph-funnel"
-            tooltip={t("nouns.filter_other")}
-            tooltipOptions={{ position: "top" }}
-            className="aspect-square"
-            onClick={setOpen}
-          />
+          {someFiltersHaveInputs && (
+            <Button
+              severity={areFiltersDirty ? "contrast" : "secondary"}
+              icon="ph ph-funnel"
+              tooltip={t("nouns.filter_other")}
+              tooltipOptions={{ position: "top" }}
+              className="aspect-square"
+              onClick={setOpen}
+            />
+          )}
+
           <ContentTableColumnsSelector
             columnsConfigs={columnsConfig}
             selectedColumnKeys={selectedColumnsKeys}
@@ -97,15 +104,17 @@ export function TheContent<T>({
           />
         </div>
       </div>
-      <ContentFiltersDrawer
-        visible={isOpen}
-        onHide={setClose}
-        filtersConfigs={filtersConfig}
-        selectedFilters={selectedFilters}
-        setSelectedFilters={setSelectedFilters}
-        clearFilters={clearFilters}
-        filtersLabelsI18nNamespace={i18nNamespace}
-      />
+      {someFiltersHaveInputs && (
+        <ContentFiltersDrawer
+          visible={isOpen}
+          onHide={setClose}
+          filtersConfigs={filtersConfig}
+          selectedFilters={selectedFilters}
+          setSelectedFilters={setSelectedFilters}
+          clearFilters={clearFilters}
+          filtersLabelsI18nNamespace={i18nNamespace}
+        />
+      )}
       {error && (
         <div className="flex min-h-[30vh] flex-col items-center justify-center gap-2 text-center">
           <span className="text-2xl font-bold">
