@@ -22,8 +22,8 @@ export const shapesFiltersConfigs: Record<string, ContentFilterConfig> = {
     default: 1,
     min: 1,
   },
-  limit: {
-    key: "limit",
+  pageSize: {
+    key: "pageSize",
     type: ContentValidationType.NUMBER,
     options: [10, 25, 50, 100],
     default: 10,
