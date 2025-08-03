@@ -11,6 +11,7 @@ import { HttpStatusCode } from "~/core/constants/fetch.ts";
 import MainLayout, {
   ErrorBoundary as MainLayoutErrorBoundary,
   loader as mainLayoutLoader,
+  shouldRevalidate as mainShouldRevalidate,
 } from "~/layouts/main-layout.tsx";
 import dashboardRoutes from "~/modules/dashboard/routes.tsx";
 import shapesRoutes from "~/modules/shapes/routes.tsx";
@@ -65,8 +66,9 @@ const router = createHashRouter([
           icon: "ph ph-house",
         },
         element: <MainLayout />,
-        errorElement: <MainLayoutErrorBoundary />,
         loader: mainLayoutLoader,
+        shouldRevalidate: mainShouldRevalidate,
+        errorElement: <MainLayoutErrorBoundary />,
         children: [
           toolsIndexRoute,
           toolsFallbackRoute,

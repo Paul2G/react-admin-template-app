@@ -5,12 +5,12 @@ import {
   Link,
   Outlet,
   redirect,
+  ShouldRevalidateFunctionArgs,
   useNavigate,
   useNavigation,
   useRouteError,
 } from "react-router";
 import clsx from "clsx";
-import { getFixedT } from "i18next";
 import { Button } from "primereact/button";
 import { ProgressBar } from "primereact/progressbar";
 
@@ -22,17 +22,21 @@ import { SidebarMenu } from "~/layouts/components/sidebar-menu";
 
 import { HttpStatusCode } from "~/core/constants/fetch.ts";
 import { useOpener } from "~/core/hooks";
-import { getUserLocalePreference } from "~/layouts/utils/locales.ts";
 import { checkLogin } from "~/modules/user/api";
 import {
   getUserToken,
   removeUserToken,
 } from "~/modules/user/utils/token.client.ts";
 
+export const shouldRevalidate = ({
+  currentUrl,
+  nextUrl,
+}: ShouldRevalidateFunctionArgs) => {
+  return currentUrl.pathname != nextUrl.pathname;
+};
+
 export async function loader() {
-  const { language } = getUserLocalePreference();
   const token = getUserToken();
-  const t = getFixedT(language);
 
   if (!token) {
     return redirect("/auth/login");
@@ -40,7 +44,7 @@ export async function loader() {
 
   try {
     const user = await checkLogin({ token });
-    return { user, meta: { title: t("router:home") } };
+    return { user };
   } catch (e) {
     console.error(e);
     removeUserToken();

@@ -21,7 +21,7 @@ export function BreadcrumbNav({ className }: BreadcrumbNavProps) {
     const lastIndex = matches[matches.length - 1].handle?.index
       ? matches.length - 1
       : matches.length;
-    return matches.slice(1, lastIndex);
+    return matches.slice(2, lastIndex);
   }, [matches]);
   const currentRoute = matches[matches.length - 1];
 
@@ -60,6 +60,9 @@ export function BreadcrumbNav({ className }: BreadcrumbNavProps) {
   return (
     <BreadCrumb
       model={routes}
+      home={{
+        icon: "ph-bold ph-house",
+      }}
       pt={{ root: { className: "flex items-center p-0 overflow-hidden" } }}
       className={clsx(className, "border-0 bg-transparent")}
     />
